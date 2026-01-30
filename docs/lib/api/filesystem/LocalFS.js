@@ -106,7 +106,7 @@ class LocalFS extends AFSProvider {
 			path = "/" + path;
 		}
 		const parentFolder = this.path.dirname(path);
-		// eslint-disable-next-line prefer-const
+		 
 		let [parentHandle, realPath] = await this.getChildDirHandle(parentFolder);
 		const fileName = this.path.basename(path);
 		if (realPath[0] === "/") {
@@ -210,7 +210,7 @@ class LocalFS extends AFSProvider {
 				data = new TextEncoder().encode(data);
 			}
 			path = this.relativizePath(path);
-			// eslint-disable-next-line prefer-const
+			 
 			let [handle, realPath] = await this.getFileHandle(path, {
 				create: true,
 			});
@@ -559,7 +559,7 @@ class LocalFS extends AFSProvider {
 			// Check if the path exists in stats
 			path = this.relativizePath(path);
 			const fileName = this.path.basename(path);
-			// eslint-disable-next-line prefer-const
+			 
 			let [parentHandle, realParent] = await this.getChildDirHandle(
 				this.path.dirname(path),
 			);
@@ -600,7 +600,7 @@ class LocalFS extends AFSProvider {
 			//     target = this.relativizePath(target);
 			// }
 			const fileName = this.path.basename(path);
-			// eslint-disable-next-line prefer-const
+			 
 			let [parentHandle, realParent] = await this.getChildDirHandle(
 				this.path.dirname(path),
 			);

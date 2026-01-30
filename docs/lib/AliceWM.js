@@ -1062,7 +1062,7 @@ class WMSplitBar {
 		this.element.remove();
 	}
 }
-// eslint-disable-next-line prefer-const
+ 
 let AliceWM = {
 	create: function (givenWinInfo, app) {
 		// Default param
