@@ -171,8 +171,13 @@ window.addEventListener("load", async () => {
 
 	navigator.serviceWorker.addEventListener("controllerchange", initComlink);
 
-	await navigator.serviceWorker.register("/anura-sw.js");
-	initComlink();
+	try {
+		await navigator.serviceWorker.register("/anura-sw.js");
+		initComlink();
+	} catch (err) {
+		console.error("Service Worker registration failed:", err);
+		console.warn("Continuing without Service Worker...");
+	}
 
 	navigator.serviceWorker.addEventListener("message", (event) => {
 		if (event.data.anura_target === "anura.sw.reinit") initComlink(); // this could accidentally be run twice but realistically there aren't any consequences for doing so

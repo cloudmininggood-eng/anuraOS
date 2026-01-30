@@ -2,6 +2,11 @@
 	"name": "anuraos",
 	"version": "2.0.0",
 	"type": "module",
+	"scripts": {
+		"start": "npx serve public",
+		"start:root": "npx serve .",
+		"dev": "node server/server.js"
+	},
 	"description": "webOS that has v86 capabilities and a modular app system",
 	"repository": {
 		"type": "git",

@@ -1,10 +1,14 @@
 import path from "path";
 import fs from "fs";
+import { fileURLToPath } from "url";
+import mime from "mime";
 
 import express from "express";
 import { server as wisp } from "@mercuryworkshop/wisp-js/server";
 
-const __dirname = path.join(process.cwd(), "..");
+mime.define({ "application/javascript": ["cjs", "mjs"] });
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Debug a local app folder and mount it to /apps, patching config.json to force load it
 const debugAppFolder = process.env.DEBUG_APP_FOLDER;
@@ -53,11 +57,11 @@ if (debugAppFolder) {
 	);
 }
 
-app.use(express.static(__dirname + "/public"));
-app.use(express.static(__dirname + "/build"));
-app.use("/bin", express.static(__dirname + "/bin"));
-app.use("/apps", express.static(__dirname + "/apps"));
-app.use(express.static(__dirname + "/aboutproxy/static"));
+app.use(express.static(path.join(__dirname, "../public")));
+app.use(express.static(path.join(__dirname, "../build")));
+app.use("/bin", express.static(path.join(__dirname, "../bin")));
+app.use("/apps", express.static(path.join(__dirname, "../apps")));
+app.use(express.static(path.join(__dirname, "../aboutproxy/static")));
 
 const server = app.listen(port, () => console.log("Listening on port: ", port));
 
