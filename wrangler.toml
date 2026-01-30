@@ -1,11 +1,5 @@
 name = "anuraos"
-type = "javascript"
 pages_build_output_dir = "docs"
-main = "worker.js"
-
-[build]
-command = "echo 'Static build'"
-cwd = "."
 
 [env.production]
 compatibility_date = "2026-01-30"
