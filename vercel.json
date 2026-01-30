@@ -1,0 +1,6 @@
+{
+	"version": 2,
+	"builds": [{ "src": "docs/**", "use": "@vercel/static" }],
+	"cleanUrls": true,
+	"trailingSlash": false
+}
