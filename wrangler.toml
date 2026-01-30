@@ -1,6 +1,7 @@
 name = "anuraos"
 type = "javascript"
 pages_build_output_dir = "docs"
+main = "worker.js"
 
 [build]
 command = "echo 'Static build'"
